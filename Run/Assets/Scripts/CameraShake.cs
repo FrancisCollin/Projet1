@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Francis Collin, 1738286
+/// Lorsqu'il y a suffisamment de basse fréquences dans la musique la caméra bouge aléatoirement pour créer un effet de "Glitch".
+/// </summary>
 public class CameraShake : MonoBehaviour
 {
     void Update()
     {
+        //Détection de la basse
         float[] spectrum = new float[256];
         AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
         float highestBass = 0;
@@ -17,7 +21,7 @@ public class CameraShake : MonoBehaviour
             }
         }
 
-
+        //Quand que la basse à une valeur de 30%
         if (highestBass >= 0.3f)
         {
             StartCoroutine(Shake(.001f, .1f));
@@ -25,6 +29,12 @@ public class CameraShake : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Méthode qui fait shaker la caméra aléatoirement
+    /// </summary>
+    /// <param name="duration"> la durée de l'effet </param>
+    /// <param name="magnitude"> La force de l'effet </param>
+    /// <returns> Un temps d'attente </returns>
     IEnumerator Shake(float duration, float magnitude)
     {
         Vector3 originalPos = transform.localPosition;

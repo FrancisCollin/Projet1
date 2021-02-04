@@ -2,21 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Francis Collin, 1738286
+/// Cette classe génére les terrains et les obstacles du parcourt aléatoirement.
+/// </summary>
 public class GenParcourt : MonoBehaviour
 {
     public Transform[] terrainObj;
     public Transform[] obstaclesObj;
+
     public List<GameObject> terrains;
     public List<GameObject> obstacles;
+
     public bool difficile = true;
 
     
     private Vector3 nextTerrainPos;
     private Vector3 lastTerrainPos;
-    private int firstTerrainId = 0;
     private Vector3 nextObstaclePos;
-    private int[] rows = new int[] { -1, 0, 1 };
+
+    private int firstTerrainId = 0;
     private int firstObstacleId = 0;
+
+    private int[] rows = new int[] { -1, 0, 1 };
 
     private ParametresJeu parametres;
 
@@ -31,14 +39,16 @@ public class GenParcourt : MonoBehaviour
     {
         CalculeNextPos();
 
+        //Si le terrain est derrière le joueur, le supprime et augmente le score de 1
         var firstTerrain = terrains[firstTerrainId];
-        if (firstTerrain.transform.position.z <= -3.76f) //3.76
+        if (firstTerrain.transform.position.z <= -3.76f)
         {
             Destroy(firstTerrain);
             firstTerrainId++;
             parametres.score++;
         }
 
+        //Si l'obstacle est derrière le joueur, le supprime
         var firstObstacle = obstacles[firstObstacleId];
         if (firstObstacle.transform.position.z <= -3.76)
         {
@@ -48,12 +58,19 @@ public class GenParcourt : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fait apparaitre un terrain aléatoire
+    /// </summary>
     void SpawnTerrain()
     {
         var terrain = terrainObj[Random.Range(0, terrainObj.Length)];
         var go = Instantiate(terrain, nextTerrainPos, terrain.rotation);
         terrains.Add(go.gameObject);
     }
+
+    /// <summary>
+    /// Fait apparaitre un obstacle aléatoire
+    /// </summary>
     void SpawnObstacle()
     {
         var obstacle = obstaclesObj[Random.Range(0, obstaclesObj.Length)];
@@ -61,6 +78,9 @@ public class GenParcourt : MonoBehaviour
         obstacles.Add(go.gameObject);
     }
 
+    /// <summary>
+    /// Détermine la position du prochain terrain et du/des prochains obstacles
+    /// </summary>
     void CalculeNextPos()
     {
         var lastTerrain = terrains[terrains.Count - 1];
@@ -71,6 +91,7 @@ public class GenParcourt : MonoBehaviour
         nextObstaclePos.z = lastTerrainPos.z + Random.Range(-0.2f, 1.86f);
         nextObstaclePos.x = rows[Random.Range(0, 3)];
 
+        //Détermine si la disposition des obstacles sera difficile ou facile
         if (Random.Range(0, 2) == 1)
         {
             difficile = true;
@@ -84,10 +105,14 @@ public class GenParcourt : MonoBehaviour
         {
             SpawnTerrain();
             SpawnObstacle();
+
+            //Si difficle, fait apparaître un deuxième obstacle
             if (difficile)
             {
                 var rd = Random.Range(0, 2);
-                if (nextObstaclePos.x == 0) //Centre
+
+                //Si le premier obstacle est au CENTRE
+                if (nextObstaclePos.x == 0)
                 {
                     
                     if (rd == 0)
@@ -99,7 +124,9 @@ public class GenParcourt : MonoBehaviour
                         nextObstaclePos.x = 1;
                     }
                 }
-                else if(nextObstaclePos.x == -1) //Gauche
+
+                //Si le premier obstacle est à GAUCHE
+                else if (nextObstaclePos.x == -1)
                 {
                     if (rd == 0)
                     {
@@ -110,7 +137,9 @@ public class GenParcourt : MonoBehaviour
                         nextObstaclePos.x = 1;
                     }
                 }
-                else //Droite
+
+                //Si le premier obstacle est à DROITE
+                else
                 {
                     if (rd == 0)
                     {
@@ -121,6 +150,7 @@ public class GenParcourt : MonoBehaviour
                         nextObstaclePos.x = -1;
                     }
                 }
+
                 SpawnObstacle();
             }
         }
