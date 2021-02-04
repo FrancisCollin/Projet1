@@ -62,9 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CameraShake.cs" />
+    <Compile Include="Assets\Scripts\Collisions.cs" />
     <Compile Include="Assets\Scripts\GenParcourt.cs" />
+    <Compile Include="Assets\Scripts\LightFlicker.cs" />
     <Compile Include="Assets\Scripts\MouvementJoueur.cs" />
-    <Compile Include="Assets\Scripts\MouvementTerrain.cs" />
+    <Compile Include="Assets\Scripts\MouvementParcourt.cs" />
     <Compile Include="Assets\Scripts\ParametresJeu.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
