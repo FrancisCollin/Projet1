@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20749143, g: 0.21147497, b: 0.14576834, a: 1}
+  m_IndirectSpecularColor: {r: 0.20749113, g: 0.21147475, b: 0.14576823, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -867,7 +867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &515545656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -936,7 +936,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515545655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.882, z: -5.57}
+  m_LocalPosition: {x: 0, y: 0.882, z: -2.93}
   m_LocalScale: {x: 3.7809, y: 3.5146, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3351,7 +3351,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.01
+  m_MaxParticleSize: 0.15
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -8357,7 +8357,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Bienvenue dans Run\n\n\nUtiliser les touches A et D pour bouger de gauche
-    \xE0 droite.\n\nUtiliser la touche W pour sauter.\n\nMaintener Espace en m\xEAme
+    \xE0 droite.\n\nUtiliser la touche W pour sauter.\n\nMaintener Shift en m\xEAme
     temps qu'une touche de d\xE9placement (A et D) pour vous d\xE9placez plus rapidement."
 --- !u!222 &1912623720
 CanvasRenderer:

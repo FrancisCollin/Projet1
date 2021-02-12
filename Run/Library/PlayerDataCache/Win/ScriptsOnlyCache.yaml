@@ -1139,4 +1139,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/franc/Desktop/run/Run.exe
+  playerPath: C:/Users/franc/OneDrive/Bureau/RunForBadPC/Run.exe

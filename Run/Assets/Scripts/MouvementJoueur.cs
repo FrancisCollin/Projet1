@@ -82,12 +82,12 @@ public class MouvementJoueur : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetKey("d") && Input.GetKey("space")) || (Input.GetKey(KeyCode.RightArrow) && Input.GetKey("space")))
+        if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetKey("d") && Input.GetKey(KeyCode.LeftShift)) || (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftShift)))
         {
             DeplacementDroite();
         }
 
-        if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKey("a") && Input.GetKey("space")) || (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey("space")))
+        if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKey("a") && Input.GetKey(KeyCode.LeftShift)) || (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.LeftShift)))
         {
             DeplacementGauche();
         }
